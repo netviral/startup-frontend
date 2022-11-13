@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<html>
+	<head>
+		<title><%=title%></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="/poems" class="logo">
+										<!-- <strong> -->
+										  <div style="display:inline-block"><span style="font-size:30px; margin:10px" class="fas fa-chevron-left"></span></div><div style="position:relative; bottom:4px; display:inline-block">POEMS</div>
+										<!-- </strong> --> 
+									  </a>
+									<%-include("partials/icons")%>
+								</header>
+								<!-- <div class="poem2">
+									<h3>Abstract</h3>
+									<p> Pellentesque aliquam maximus risus, vel sed vehicula. maximus risus, vel sed vehicu. Pellentesque aliquam maximus risus, vel sed vehicula. maximus risus, vel sed vehicu. </p>
+		
+								</div> -->
+						<div class="poem">
+							<!-- Content -->
+							<div style="border:10px; align-self: center;">
+								<div class="poem-inner">
+									<div>
+									<div style="padding:10px">
+										<h2 style="font-family: cursive;"><%=title%></h2>
+									</div>
+									<%if(image_url!=null){ %>
+									<img src="<%=url%><%=image_url%>" alt="">
+									<%}%>
+									<%-poem%>
+									<%if(author.name){%>
+									  <p style="margin:50px ; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; opacity: 0.7; font-size:17px">Written by:  <%=author.name%></p>
+									<%}%>
+								  </div>
+								</div>
+							</div>
+							<div><b><%-tags%></b></div><br /><br />
+						</div>
+						
+
+						<%if(author){%>
+							<h2>Meet the Poet:</h2>
+							<div class="writer-box">
+							   <!-- Content -->
+							   <div style="border:10px; align-self: center;">
+								  <div class="box-inner">
+									 <div>
+										<div class="box-text">
+										   <%if(author.data.attributes.name){%>
+										   <p><%=author.data.attributes.name%></p>
+										   <%}%>
+										   <%if(author.data.attributes.bio){%>
+										   <p><%-author.data.attributes.bio%></p>
+										   <%}%>
+										</div>
+									 </div>
+								  </div>
+							   </div>
+							</div>
+							<%}%>
+						
+
+						</div>
+					</div>
+
+					<%-include("partials/side-menu-small")%>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+
+	</body>
+</html>

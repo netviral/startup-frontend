@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<!--
+   Editorial by HTML5 UP
+   html5up.net | @ajlkn
+   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+   -->
+<html>
+   <head>
+      <title>Submissions</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <link rel="stylesheet" href="/assets/css/main.css" />
+      <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <!-- Google Analytics -->
+      <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         
+         ga('create', 'UA-210116417-1', 'auto');
+         ga('send', 'pageview');
+      </script>
+      <!-- End Google Analytics -->
+   </head>
+   <body class="is-preload">
+      <!-- Wrapper -->
+      <div id="wrapper">
+         <!-- Main -->
+         <div id="main">
+            <div class="inner">
+               <!-- Header -->
+               <header id="header">
+                  <a href="/" class="logo">
+                     <img src="/images/illustration.png"/>&nbsp;&nbsp;&nbsp;
+                     <div style="display:inline-block;position:relative; bottom:7px">Inky Parchments</div>
+                  </a>
+                  <%-include("partials/icons")%>
+               </header>
+               <!-- Content -->
+               <section>
+                  <header class="main">
+                     <h1>Submission Procedure</h1>
+                  </header>
+                  <p><%-steps%></p>
+                  <ul class="actions">
+                     <li><a target="_blank" href="https://docs.google.com/document/create" class="button primary"><%=button%></a></li>
+                     <!-- <input class="primary" type="button" value="Download Form" onclick="DownloadFile('submission-form.pdf')" /> -->
+                  </ul>
+               </section>
+               <section>
+                  <div id="new">
+                     <h2>Submit Your Work</h2>
+                     <form id="form" autocomplete="on">
+                        <div class="row gtr-uniform">
+                           <div class="col-6 col-12-small">
+                              <input required type="text" name="name" id="demo-name" value="" placeholder="*Full Name" />
+                           </div>
+                           <div class="col-6 col-12-small">
+                              <input required type="email" name="email" id="demo-email" value="" placeholder="*Email ID" />
+                           </div>
+                           <div class="col-6 col-12-small">
+                              <input required type="text" name="phone" id="demo-name" value="" placeholder="*Phone Number" />
+                           </div>
+                           <div class="col-6 col-12-small">
+                              <select required name="anonymous" id="anonymous">
+                                 <option value=""> Do I wish to be anonymous to the audience</option>
+                                 <option value="Yes">Yes</option>
+                                 <option value="No">No</option>
+                              </select>
+                           </div>
+                           <div class="col-12">
+                              <input type="text" required name="title" id="title-new" placeholder="*Title"  />
+                              <br /><label for="title-new">Give your work a suitable title. </label>
+                           </div>
+                           <div class="col-6 col-12-small">
+                              <select required name="form" id="demo-category">
+                                 <option value="">*Form of Work -</option>
+                                 <option value="Blog">Blog</option>
+                                 <option value="Poetry">Poetry</option>
+                                 <option value="Short Story">Short Story</option>
+                                 <option value="Flash Fiction">Flash Fiction</option>
+                                 <option value="Miscellaneous">Miscellaneous</option>
+                              </select>
+                           </div>
+                           <div class="col-6 col-12-small">
+                              <select name="category" id="demo-category">
+                                 <option value="">*Category -</option>
+                                 <option value="General Audience">General Audience</option>
+                                 <option value="Teen and Up">Teen and Up</option>
+                                 <option value="Mature">Mature</option>
+                                 <option value="Explicit">Explicit</option>
+                              </select>
+                           </div>
+                           <div class="col-12">
+                              <textarea name="previewText" id="demo-message" placeholder="Preview Text" rows="6"></textarea>
+                              <label for="demo-message">An extract from your piece that catches the eye of the audience</label>
+                           </div>
+                           <div class="col-12">
+                              <input type="url" required name="link" id="demo-message" placeholder="*Shareable gdoc link" rows="3" />
+                              <br /><label for="submit">Please be sure to change the access permissions so that anyone with the link has <u style="font-family: serif;"><strong> EDITING ACCESS. </strong></u>Without access, we cannot edit the document. Consequently, we won't be able to publish your piece.</label>
+                           </div>
+                           <div class="col-12">
+                              <textarea name="design" id="design-form" placeholder="If you have any visualizations or requests to the designer, in case your work is chosen for our Instagram feed, please put them here" rows="3"></textarea>
+                              <label for="design-form">Eg. Please highlight the last two stanzas of my poem. I'd also like the background of the post to be dark brown and text to be in a bold font. I'd like the word "patriarchy" in the title to be underlined and have a cursive font.</label>
+                           </div>
+                           <div class="col-12">
+                              <input type="text" name="collab" id="demo-collab" placeholder="In case you choose collaborative posting, your instagram handle" />
+                              <br /><label for="collab">Inky Parchments is now open to collaborative posts! If you're interested in sharing your work with two sets of audience (your own and ours), drop in the instagram account here, one you wish to collaborate with. We will add you as a collaborator when we post!  
+                              </label>
+                           </div>
+                           <!-- Break -->
+                           <div class="col-12">
+                              <ul class="actions">
+                                 <li><input type="submit" value="Submit for publishing" class="primary" /></li>
+                                 <div id="loader" class="loader"></div>
+                              </ul>
+                           </div>
+                        </div>
+                     </form>
+                     <p class="box" id="thank-you-message"></p>
+                  </div>
+               </section>
+               <section>
+                  <p><%-guide%></p>
+               </section>
+            </div>
+         </div>
+         <%-include("partials/side-menu-small")%>
+      </div>
+      <!-- Scripts -->
+      <script src="/assets/js/submit.js"></script>
+      <script src="/assets/js/jquery.min.js"></script>
+      <script src="/assets/js/browser.min.js"></script>
+      <script src="/assets/js/breakpoints.min.js"></script>
+      <script src="/assets/js/util.js"></script>
+      <script src="/assets/js/main.js"></script>
+   </body>
+</html>

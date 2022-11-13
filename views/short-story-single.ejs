@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<html>
+	<head>
+		<title><%-title%></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="/stories" class="logo">
+										<!-- <strong> -->
+										  <div style="display:inline-block"><span style="font-size:30px; margin:10px" class="fas fa-chevron-left"></span></div><div style="position:relative; bottom:4px; display:inline-block">SHORT STORIES</div>
+										<!-- </strong> --> 
+									  </a>
+									<%-include("partials/icons")%>
+								</header>
+
+							<!-- Content -->
+
+								<section>
+									<!-- <header class="main">
+										<h1>Generic</h1>
+									</header> -->
+
+									<!-- <span class="image main"><img src="images/pic11.jpg" alt="" /></span> -->
+									<div><%-publishDate%></div>
+									<p><%-content%></p>
+									<div><b><%-tags%></b></div><br /><br />
+									<%if(author){%>
+										<h2>Meet the writer:</h2>
+										<div class="writer-box">
+										   <!-- Content -->
+										   <div style="border:10px; align-self: center;">
+											  <div class="box-inner">
+												 <div>
+													<div class="box-text">
+													   <%if(author.data.attributes.name){%>
+													   <p><%=author.data.attributes.name%></p>
+													   <%}%>
+													   <%if(author.data.attributes.bio){%>
+													   <p><%-author.data.attributes.bio%></p>
+													   <%}%>
+													</div>
+												 </div>
+											  </div>
+										   </div>
+										</div>
+										<%}%>
+								</section>
+
+						</div>
+					</div>
+
+					<%-include("partials/side-menu-small")%>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/browser.min.js"></script>
+			<script src="/assets/js/breakpoints.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<script src="/assets/js/main.js"></script>
+
+	</body>
+</html>

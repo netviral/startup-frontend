@@ -1,0 +1,438 @@
+<!DOCTYPE HTML>
+<!--
+   Editorial by HTML5 UP
+   html5up.net | @ajlkn
+   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+   -->
+<html>
+   <head>
+      <title>Home</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+      <link rel="stylesheet" href="/assets/css/main.css" />
+      <!-- Google Analytics -->
+      <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         
+         ga('create', 'UA-210116417-1', 'auto');
+         ga('send', 'pageview');
+      </script>
+      <!-- End Google Analytics -->
+   </head>
+   <body class="is-preload">
+      <!-- Wrapper -->
+      <div id="wrapper">
+         <!-- Main -->
+         <div id="main">
+            <div class="inner">
+               <!-- Header -->
+               <header id="header">
+                  <a href="/" class="logo">
+                     <img src="/images/illustration.png"/>&nbsp;&nbsp;&nbsp;
+                     <div style="display:inline-block;position:relative; bottom:7px">Inky Parchments</div>
+                  </a>
+                  <%-include("partials/icons")%>
+               </header>
+               <!-- Banner -->
+               <section id="banner">
+                  <div class="content">
+                     <header>
+                        <h1><%-homeContent.headline%></h1>
+                        <p><%=homeContent.caption%></p>
+                     </header>
+                     <p><%=homeContent.para%></p>
+                     <ul class="actions">
+                        <li><a href="/about" class="button big">Read More</a></li>
+                     </ul>
+                  </div>
+                  <span class="image object">
+                  <img src="<%=url%><%=homeContent.image.data.attributes.url%>" alt="" />
+                  </span>
+               </section>
+               <!-- Section -->
+               <%if(feeds.length>0){%>
+               <section>
+                  <header class="major">
+                     <h2>Feeds</h2>
+                  </header>
+                  <div class="features">
+                     <%if(feeds.length<3){ %>
+                     <%for(var i=feeds.length-1; i>=0; i--){%>
+                     <article>
+                        <span class="icon solid <%=feeds[i].attributes.icon%>"></span>
+                        <div class="content">
+                           <h3><%=feeds[i].attributes.headline%></h3>
+                           <p><%=feeds[i].attributes.para%></p>
+                        </div>
+                     </article>
+                     <%}%>
+                     <%}else{%>
+                     <%for(var i=feeds.length-1; i>=feeds.length-2; i--){%>
+                     <article>
+                        <span class="icon solid <%=feeds[i].icon%>"></span>
+                        <div class="content">
+                           <h3><%=feeds[i].attributes.headline%></h3>
+                           <p><%=feeds[i].attributes.para%></p>
+                        </div>
+                     </article>
+                     <%}%>
+                     <%}%>
+                  </div>
+               </section>
+               <%}%>
+               <!-- Section -->
+               <%if(blogs.length>0){%>
+               <section>
+                  <header class="major">
+                     <h2>Recent Blogs</h2>
+                  </header>
+                  <div class="posts">
+                     <% if(blogs.length<2){ %>
+                     <% for(var i=blogs.length-1;i>=0;i--){ %>
+                     <article>
+                        <%if(blogs[i].attributes.preview_image.data){ %>
+                        <a href="/blogs/<%=blogs[i].title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=blogs[i].id%>" class="image"><img src="<%=url%><%=blogs[i].attributes.preview_image.data.attributes.url%>" alt="" /></a>
+                        <%}%>
+                        <h3><%=blogs[i].attributes.title%></h3>
+                        <%if(blogs[i].attributes.author){%>
+                        <h5>By <%=blogs[i].attributes.author.data.attributes.name%></h5>
+                        <%}%>
+                        <%if(blogs[i].attributes.preview_text){%>
+                        <p><%=blogs[i].attributes.preview_text.substring(0,200)%></p>
+                        <%}%>		
+                        <div style="background-color: #f5f6f7; padding:10px">
+                           <%if(blogs[i].attributes.category!=null){%>
+                           <strong>
+                              <p style="font-style: italic;">Category: <%=blogs[i].attributes.category%></p>
+                           </strong>
+                           <%}%>
+                           <%if(blogs[i].attributes.tags){%>
+                           <b>tags:</b> <%=blogs[i].attributes.tags%>
+                           <%}%>
+                        </div>
+                        <br />
+                        <ul class="actions">
+                           <li><a href="/blogs/<%=blogs[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=blogs[i].id%>" class="button">Read</a></li>
+                        </ul>
+                     </article>
+                     <%}%>
+                     <%}else{ %>
+                     <% for(var i=blogs.length-1;i>=blogs.length-2;i--){ %>
+                     <article>
+                        <%if(blogs[i].attributes.preview_image.data){ %>
+                        <a href="/blogs/<%=blogs[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=blogs[i].id%>" class="image"><img src="<%=url%><%=blogs[i].attributes.preview_image.data.attributes.url%>" alt="" /></a>
+                        <%}%>
+                        <h3><%=blogs[i].attributes.title%></h3>
+                        <%if(blogs[i].attributes.author){%>
+                        <h5>By <%=blogs[i].attributes.author.data.attributes.name%></h5>
+                        <%}%>
+                        <%if(blogs[i].attributes.preview_text){%>
+                        <p><%=blogs[i].attributes.preview_text.substring(0,200)%></p>
+                        <%}%>		
+                        <div style="background-color: #f5f6f7; padding:10px">
+                           <%if(blogs[i].attributes.category!=null){%>
+                           <strong>
+                              <p style="font-style: italic;">Category: <%=blogs[i].attributes.category%></p>
+                           </strong>
+                           <%}%>
+                           <%if(blogs[i].attributes.tags){%>
+                           <b>tags:</b> <%=blogs[i].attributes.tags%>
+                           <%}%>
+                        </div>
+                        <br />
+                        <ul class="actions">
+                           <li><a href="/blogs/<%=blogs[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=blogs[i].id%>" class="button">Read</a></li>
+                        </ul>
+                     </article>
+                     <%}%>
+                     <%}%>
+                  </div>
+                  <a href="/blogs">View all blogs...</a>
+               </section>
+               <%}%>
+
+               <%if(poems.length>0){%>
+               <section>
+                  <header class="major">
+                     <h2>Recent Poems</h2>
+                  </header>
+                  <div class="posts">
+                     <% if(poems.length<2){ %>
+                     <% for(var i=poems.length-1;i>=0;i--){ %>
+                     <article class="box" style="background-color: #F5F6F7;">
+                        <h2 style="font-family: cursive;"><%=poems[i].attributes.title%></h2>
+                        <h5>By <%=poems[i].attributes.author.data.attributes.name%></h5>
+                        <p><%-poems[i].attributes.preview_text-%>...</p>
+                        <%if(poems[i].attributes.category!=null){%>
+                        <strong>
+                           <p style="font-style: italic;">Category: <%=poems[i].attributes.category%></p>
+                        </strong>
+                        <br />
+                        <%}%>
+                        <%if(poems[i].attributes.tags){%>
+                        <h5>tags: <%=poems[i].attributes.tags%></h5>
+                        <br />
+                        <%}%>
+                        <ul class="actions">
+                           <li><a href="/poems/<%=poems[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=poems[i].id%>" class="button">Read</a></li>
+                        </ul>
+                     </article>
+                     <%}%>
+                     <%}else{ %>
+                     <% for(var i=poems.length-1;i>=poems.length-2;i--){ %>
+                     <article class="box" style="background-color: #F5F6F7;">
+                        <h2 style="font-family: cursive;"><%=poems[i].attributes.title%></h2>
+                        <%if(poems[i].attributes.author.data){%>
+                        <h5>By <%=poems[i].attributes.author.data.attributes.name%></h5>
+                        <%}%>
+                        <p><%-poems[i].attributes.preview_text-%>...</p>
+                        <%if(poems[i].attributes.category!=null){%>
+                        <strong>
+                           <p style="font-style: italic;">Category: <%=poems[i].attributes.category%></p>
+                        </strong>
+                        <br />
+                        <%}%>
+                        <%if(poems[i].attributes.tags){%>
+                        <h5>tags: <%=poems[i].attributes.tags%></h5>
+                        <br />
+                        <%}%>
+                        <ul class="actions">
+                           <li><a href="/poems/<%=poems[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=poems[i].id%>" class="button">Read</a></li>
+                        </ul>
+                     </article>
+                     <%}%>
+                     <%}%>
+                  </div>
+                  <a href="/poems">View all Poems...</a>
+               </section>
+               <%}%>
+
+               <%if(stories.length>0){%>
+                  <section>
+                     <header class="major">
+                       <h2>Recent Short Stories</h2>
+                     </header>
+                     <div class="posts">
+                       <% if(stories.length<2){ %>
+                       <% for(var i=stories.length-1;i>=0;i--){ %>
+                       <article>
+                         <%if(stories[i].attributes.preview_image.data){ %>
+                         <a href="/stories/<%=stories[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=stories[i].id%>" class="image"><img src="<%=url%><%=stories[i].attributes.preview_image.data.attributes.url%>" alt="" /></a>
+                         <%}%>
+                         <h3><%=stories[i].attributes.title%></h3>
+                         <%if(stories[i].attributes.author.data.attributes.name){%>
+                         <h5>By <%=stories[i].attributes.author.data.attributes.name%></h5>
+                         <%}%>
+                         <%if(stories[i].attributes.preview_text){%>
+                         <p><%=stories[i].attributes.preview_text.substring(0,200)%></p>
+                         <%}%>		
+                         <div style="background-color: #f5f6f7; padding:10px">
+                           <%if(stories[i].attributes.category!=null){%>
+                           <strong>
+                              <p style="font-style: italic;">Category: <%=stories[i].attributes.category%></p>
+                           </strong>
+                           <%}%>
+                           <%if(stories[i].attributes.tags){%>
+                           <b>tags:</b> <%=stories[i].attributes.tags%>
+                           <%}%>
+                         </div>
+                         <br />
+                         <ul class="actions">
+                           <li><a href="/stories/<%=stories[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=stories[i].id%>" class="button">Read</a></li>
+                         </ul>
+                       </article>
+                       <%}%>
+                       <%}else{ %>
+                       <% for(var i=stories.length-1;i>=stories.length-2;i--){ %>
+                       <article>
+                         <%if(stories[i].preview_image){ %>
+                         <a href="/stories/<%=stories[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=stories[i].id%>" class="image"><img src="<%=url%><%=stories[i].attributes.preview_image.data.attributes.url%>" alt="" /></a>
+                         <%}%>
+                         <h3><%=stories[i].attributes.title%></h3>
+                         <%if(stories[i].attributes.author.data){%>
+                         <h5>By <%=stories[i].attributes.author.data.attributes.name%></h5>
+                         <%}%>
+                         <%if(stories[i].attributes.preview_text){%>
+                         <p><%=stories[i].attributes.preview_text.substring(0,200)%></p>
+                         <%}%>		
+                         <div style="background-color: #f5f6f7; padding:10px">
+                           <%if(stories[i].attributes.category!=null){%>
+                           <strong>
+                              <p style="font-style: italic;">Category: <%=stories[i].attributes.category%></p>
+                           </strong>
+                           <%}%>
+                           <%if(stories[i].attributes.tags){%>
+                           <b>tags:</b> <%=stories[i].attributes.tags%>
+                           <%}%>
+                         </div>
+                         <br />
+                         <ul class="actions">
+                           <li><a href="/stories/<%=stories[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=stories[i].id%>" class="button">Read</a></li>
+                         </ul>
+                       </article>
+                       <%}%>
+                       <%}%>
+                     </div>
+                     <a href="/stories">View all stories...</a>
+                  </section>
+                  <%}%>
+      
+            
+               
+
+               <%if(fictions.length>0){%>
+               <section>
+                  <header class="major">
+                     <h2>Recent Flash Fictions</h2>
+                  </header>
+                  <div class="posts">
+                     <% if(fictions.length<2){ %>
+                     <% for(var i=fictions.length-1;i>=0;i--){ %>
+                     <article>
+                        <%if(fictions[i].attributes.preview_image.data){ %>
+                        <a href="/fictions/<%=fictions[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=fictions[i].id%>" class="image"><img src="<%=url%><%=fictions[i].attributes.preview_image.data.attributes.url%>" alt="" /></a>
+                        <%}%>
+                        <h3><%=fictions[i].attributes.title%></h3>
+                        <%if(fictions[i].attributes.author.data){%>
+                        <h5>By <%=fictions[i].attributes.author.data.attributes.name%></h5>
+                        <%}%>
+                        <%if(fictions[i].attributes.preview_text){%>
+                        <p><%=fictions[i].attributes.preview_text.substring(0,200)%></p>
+                        <%}%>		
+                        <div style="background-color: #f5f6f7; padding:10px">
+                           <%if(fictions[i].attributes.category!=null){%>
+                           <strong>
+                              <p style="font-style: italic;">Category: <%=fictions[i].attributes.category%></p>
+                           </strong>
+                           <%}%>
+                           <%if(fictions[i].attributes.tags){%>
+                           <b>tags:</b> <%=fictions[i].attributes.tags%>
+                           <%}%>
+                        </div>
+                        <br />
+                        <ul class="actions">
+                           <li><a href="/fictions/<%=fictions[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=fictions[i].id%>" class="button">Read</a></li>
+                        </ul>
+                     </article>
+                     <%}%>
+                     <%}else{ %>
+                     <% for(var i=fictions.length-1;i>=fictions.length-2;i--){ %>
+                     <article>
+                        <%if(fictions[i].attributes.preview_image.data){ %>
+                        <a href="/fictions/<%=fictions[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=fictions[i].id%>" class="image"><img src="<%=url%><%=fictions[i].attributes.preview_image.data.attributes.url%>" alt="" /></a>
+                        <%}%>
+                        <h3><%=fictions[i].attributes.title%></h3>
+                        <%if(fictions[i].attributes.author.data){%>
+                        <h5>By <%=fictions[i].attributes.author.data.attributes.name%></h5>
+                        <%}%>
+                        <%if(fictions[i].attributes.preview_text){%>
+                        <p><%=fictions[i].attributes.preview_text.substring(0,200)%></p>
+                        <%}%>		
+                        <div style="background-color: #f5f6f7; padding:10px">
+                           <%if(fictions[i].attributes.category!=null){%>
+                           <strong>
+                              <p style="font-style: italic;">Category: <%=fictions[i].attributes.category%></p>
+                           </strong>
+                           <%}%>
+                           <%if(fictions[i].attributes.tags){%>
+                           <b>tags:</b> <%=fictions[i].attributes.tags%>
+                           <%}%>
+                        </div>
+                        <br />
+                        <ul class="actions">
+                           <li><a href="/fictions/<%=fictions[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=fictions[i].id%>" class="button">Read</a></li>
+                        </ul>
+                     </article>
+                     <%}%>
+                     <%}%>
+                  </div>
+                  <a href="/fictions">View all fictions...</a>
+               </section>
+               <%}%>
+
+               <%if(miscs.length>0){%>
+               <section>
+                  <header class="major">
+                     <h2>Recent Miscellaneous</h2>
+                  </header>
+                  <div class="posts">
+                     <% if(miscs.length<2){ %>
+                     <% for(var i=miscs.length-1;i>=0;i--){ %>
+                     <article>
+                        <%if(miscs[i].attributes.preview_image.data){ %>
+                        <a href="/miscellaneous/<%=miscs[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=miscs[i].id%>" class="image"><img src="<%=url%><%=miscs[i].attributes.preview_image.data.attributes.url%>" alt="" /></a>
+                        <%}%>
+                        <h3><%=miscs[i].attributes.title%></h3>
+                        <%if(miscs[i].attributes.author.data){%>
+                        <h5>By <%=miscs[i].attributes.author.data.attributes.name%></h5>
+                        <%}%>
+                        <%if(miscs[i].attributes.preview_text){%>
+                        <p><%=miscs[i].attributes.preview_text.substring(0,200)%></p>
+                        <%}%>		
+                        <div style="background-color: #f5f6f7; padding:10px">
+                           <%if(miscs[i].attributes.category!=null){%>
+                           <strong>
+                              <p style="font-style: italic;">Category: <%=miscs[i].attributes.category%></p>
+                           </strong>
+                           <%}%>
+                           <%if(miscs[i].attributes.tags){%>
+                           <b>tags:</b> <%=miscs[i].attributes.tags%>
+                           <%}%>
+                        </div>
+                        <br />
+                        <ul class="actions">
+                           <li><a href="/miscellaneous/<%=miscs[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=miscs[i].id%>" class="button">Read</a></li>
+                        </ul>
+                     </article>
+                     <%}%>
+                     <%}else{ %>
+                     <% for(var i=miscs.length-1;i>=miscs.length-2;i--){ %>
+                     <article>
+                        <%if(miscs[i].attributes.preview_image.data){ %>
+                        <a href="/miscellaneous/<%=miscs[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=miscs[i].id%>" class="image"><img src="<%=url%><%=miscs[i].attributes.preview_image.data.attributes.url%>" alt="" /></a>
+                        <%}%>
+                        <h3><%=miscs[i].attributes.title%></h3>
+                        <%if(miscs[i].attributes.author.data){%>
+                        <h5>By <%=miscs[i].attributes.author.data.attributes.name%></h5>
+                        <%}%>
+                        <%if(miscs[i].attributes.preview_text){%>
+                        <p><%=miscs[i].attributes.preview_text.substring(0,200)%></p>
+                        <%}%>		
+                        <div style="background-color: #f5f6f7; padding:10px">
+                           <%if(miscs[i].attributes.category!=null){%>
+                           <strong>
+                              <p style="font-style: italic;">Category: <%=miscs[i].attributes.category%></p>
+                           </strong>
+                           <%}%>
+                           <%if(miscs[i].attributes.tags){%>
+                           <b>tags:</b> <%=miscs[i].attributes.tags%>
+                           <%}%>
+                        </div>
+                        <br />
+                        <ul class="actions">
+                           <li><a href="/miscellaneous/<%=miscs[i].attributes.title.replace(/\s+/g, '-').replace(/\?/g, '.').toLowerCase()%>/<%=miscs[i].id%>" class="button">Read</a></li>
+                        </ul>
+                     </article>
+                     <%}%>
+                     <%}%>
+                  </div>
+                  <a href="/miscellaneous">View all miscellaneous...</a>
+               </section>
+               <%}%>
+               <!-- Section -->
+            </div>
+         </div>
+         <%-include("partials/side-menu-small")%>
+      </div>
+      <!-- Scripts -->
+      <script src="/assets/js/jquery.min.js"></script>
+      <script src="/assets/js/browser.min.js"></script>
+      <script src="/assets/js/breakpoints.min.js"></script>
+      <script src="/assets/js/util.js"></script>
+      <script src="/assets/js/main.js"></script>
+   </body>
+</html>

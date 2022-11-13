@@ -1,0 +1,29 @@
+{
+  "name": "writing-club",
+  "version": "1.0.0",
+  "description": "Editorial by HTML5 UP\r html5up.net | @ajlkn\r Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "body-parser": "^1.19.0",
+    "dompurify": "^2.2.9",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "ejs-lint": "^1.2.0",
+    "express": "^4.17.1",
+    "googleapis": "^89.0.0",
+    "jsdom": "^16.6.0",
+    "marked": "^2.0.7",
+    "nodemailer": "^6.7.0",
+    "qs": "^6.10.1",
+    "sanitize-html": "^2.4.0",
+    "turndown": "^7.1.1",
+    "xss": "^1.0.10"
+  }
+}
